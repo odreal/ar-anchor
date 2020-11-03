@@ -1,0 +1,4 @@
+#!/bin/sh
+
+apt-get upgrade -Y
+apt-get install git -Y
