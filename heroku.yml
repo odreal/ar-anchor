@@ -1,9 +1,3 @@
 build:
   docker:
     web: viewer/Server
-    
-run:
-  worker:
-    command:
-      - node app.js
-    image: web
