@@ -1,6 +1,6 @@
-build:
-  docker:
-   desktop: Dockerfile
-   web: Socket
-run:
-  desktop: echo "test"
+version: '3'
+services:
+  app:
+    build: Dockerfile
+  web:
+    build: Socket
