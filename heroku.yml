@@ -3,4 +3,4 @@ build:
     web: viewer/Server
     
 run:
-  web: echo "test"
+  web: node app.js
