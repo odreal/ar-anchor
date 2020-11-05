@@ -220,4 +220,3 @@ RUN set -x && \
   chmod -R 777 ./*
 
 WORKDIR /openvslam/build/
-ENTRYPOINT ["/bin/bash"]
