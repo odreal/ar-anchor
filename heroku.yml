@@ -3,4 +3,4 @@ build:
     web: Socket
     
 run:
-  desktop: echo "test"
+  web: echo "test"
