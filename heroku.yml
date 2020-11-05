@@ -3,4 +3,7 @@ build:
     web: viewer/Server
     
 run:
-  web: node app.js
+  worker:
+    command:
+      - node app.js
+    image: web
