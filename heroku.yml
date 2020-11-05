@@ -1,5 +1,6 @@
-services:
-  app:
-    build: Dockerfile
-  web:
-    build: Socket
+build:
+  docker:
+    web: Socket
+    
+run:
+  desktop: echo "test"
