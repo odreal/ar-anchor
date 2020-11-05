@@ -42,6 +42,6 @@ http_server.listen(3000, function () {
   console.log("WebSocket: listening on *:3000");
 });
 
-http_publisher.listen(3001, function () {
+http_publisher.listen(process.env.PORT || 3001, function () {
   console.log("HTTP server: listening on *:3001")
 });
