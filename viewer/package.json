@@ -5,6 +5,7 @@
   "repository": "https://github.com/xdspacelab/openvslam",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "esper": "^0.12.1",
     "express": "^4.16.2",
     "socket.io": "^2.0.4"
   },

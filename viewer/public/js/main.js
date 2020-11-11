@@ -1,4 +1,5 @@
 'use strict';
+window.last_id = 0;
 const GLOBAL_SCALE = 50;
 
 let scene, camera, renderer;
@@ -245,7 +246,7 @@ function loadProtobufData(obj, keyframes, edges, points, referencePointIds, curr
         referencePointIds.push(id);
     }
     array2mat44(currentFramePose, obj.currentFrame.pose);
-
+    //console.log(currentFramePose);
 }
 
 let mapSegment = undefined;
@@ -277,6 +278,7 @@ function receiveProtobuf(msg) {
     }
     else {
         loadProtobufData(obj, keyframes, edges, points, referencePointIds, currentFramePose);
+        //console.log(keyframes);
         updateMapElements(msg.length, keyframes, edges, points, referencePointIds, currentFramePose);
     }
 }
@@ -333,7 +335,7 @@ function updateMapElements(msgSize, keyframes, edges, points, referencePointIds,
         let fps = 1000.0 / dt;
         // adaptive update rate
         //viewControls.updateSmoothness(fps);
-        console.log(("         " + parseInt(msgSize / 1000)).substr(-6) + " KB"
+        //console.log(("         " + parseInt(msgSize / 1000)).substr(-6) + " KB"
             + ("     " + (fps).toFixed(1)).substr(-7) + " fps, "
             + ("         " + pointCloud.nValidPoint).substr(-6) + " pts, "
             + ("         " + cameraFrames.numValidKeyframe).substr(-6) + " kfs");

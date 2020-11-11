@@ -19,7 +19,7 @@ class CameraFrames {
 
         this.POOL_KEYFRAME_POSE = [[1, 0, 0, 0], [0, 1, 0, -100000], [0, 0, 1, 0]];
 
-        let lineaGeometry = this.makeWireframe(this.POOL_KEYFRAME_POSE, this.currentFrameWireSize);
+        let lineaGeometry = this.makeWireframe(this.POOL_KEYFRAME_POSE, this.currentFrameWireSize, true);
         this.currentFrame = new THREE.LineSegments(lineaGeometry, this.CURRENT_FRAME_MATERIAL);
         this.flagCurrentFrameInScene = false;
         this.currentFramePose = this.POOL_KEYFRAME_POSE;
@@ -35,7 +35,6 @@ class CameraFrames {
     // private methods
 
     addKeyframe(id, pose) {
-
         if (this.removedPoolSize > 0) {
             let index = this.removedPool.pop();
             this.removedPoolSize--;
@@ -83,7 +82,7 @@ class CameraFrames {
         this.keyframePoses[index] = pose;
     }
 
-    makeWireframe(pose_, size) {
+    makeWireframe(pose_, size, status = false) {
         let lineGeo = new THREE.Geometry();
         const width = 0.08 / 2 * GLOBAL_SCALE * size;
         const height = 0.045 / 2 * GLOBAL_SCALE * size;
@@ -135,6 +134,9 @@ class CameraFrames {
         this.currentFrame.geometry = lineGeometry;
         this.currentFrame.geometry.verticesNeedUpdate = true;
         this.currentFramePose = pose;
+        console.log(pose);
+        let Ox = pose[0][3] * GLOBAL_SCALE; let Oy = pose[1][3] * GLOBAL_SCALE; let Oz = pose[2][3] * GLOBAL_SCALE;
+        console.log(Ox, Oy, Oz);
     }
 
 
